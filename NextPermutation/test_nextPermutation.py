@@ -27,6 +27,8 @@
 """
 import time
 from functools import wraps
+import unittest
+from .NextPermutation import Solution
 
 
 def fn_timer(function):
@@ -48,9 +50,22 @@ def fn_timer(function):
     return function_timer
 
 
+class TestSolution(unittest.TestCase):
+
+    def setUp(self):
+        self.input = [[1, 2, 3], [3, 2, 1], [1, 1, 5], [1, 3, 2], [2, 3, 1], [2, 3, 1, 1], [1, 5, 8, 4, 7, 6, 5, 3, 1]]
+        self.assert_result = [[1, 3, 2], [1, 2, 3], [1, 5, 1], [2, 1, 3], [3, 1, 2], [3, 1, 1, 2], [1, 5, 8, 5, 1, 3, 4, 6, 7]]
+
+    def test_lengthOfLongestSubstring(self):
+        s = Solution()
+        for i in range(len(self.assert_result)):
+            result = s.nextPermutation(nums=self.input[i])
+            self.assertEqual(self.assert_result[i], result)
+
+
 @fn_timer
 def main():
-    pass
+    unittest.main()
 
 
 if __name__ == '__main__':
