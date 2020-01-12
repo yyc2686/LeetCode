@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# @Time    : 2019/12/9 13:00
+# @Time    : 2019/12/24 9:54
 # @Author  : yeyuc
 # @Email   : yeyucheng_uestc@163.com
-# @File    : test_nextPermutation.py
+# @File    : test_binarySearch.py
 # @Software: PyCharm
 """
     __project_ = LeetCode
-    __file_name__ = test_nextPermutation
+    __file_name__ = test_binarySearch
     __author__ = yeyuc
-    __time__ = 2019/12/9 13:00
+    __time__ = 2019/12/24 9:54
     Code is far away from bugs with the god animal protecting
     I love animals. They taste delicious.
               ┏┓      ┏┓
@@ -26,9 +26,10 @@
                   ┗┻┛  ┗┻┛
 """
 import time
-from functools import wraps
 import unittest
-from .NextPermutation import Solution
+from functools import wraps
+
+from .BinarySearch import Solution
 
 
 def fn_timer(function):
@@ -51,17 +52,18 @@ def fn_timer(function):
 
 
 class TestSolution(unittest.TestCase):
-
     def setUp(self):
-        self.input = [[1, 2, 3], [3, 2, 1], [1, 1, 5], [1, 3, 2], [2, 3, 1], [2, 3, 1, 1], [1, 5, 8, 4, 7, 6, 5, 3, 1]]
-        self.assert_result = [[1, 3, 2], [1, 2, 3], [1, 5, 1], [2, 1, 3], [3, 1, 2], [3, 1, 1, 2],
-                              [1, 5, 8, 5, 1, 3, 4, 6, 7]]
+        self.input = [[5, 7, 7, 8, 8, 10], [2, 3, 5, 7], [2, 3, 5, 7]]
+        self.target = [8, 1, 10]
+        self.assert_result = [[3, 4], [-1], [-1]]
 
     def test_nextPermutation(self):
         s = Solution()
         for i in range(len(self.assert_result)):
-            result = s.nextPermutation(nums=self.input[i])
-            self.assertEqual(self.assert_result[i], result)
+            # result = s.binary_search(nums=self.input[i], target=self.target[i])
+            result = s.binary_search_first(nums=self.input[i], target=self.target[i])
+            # result = s.binary_search_last(nums=self.input[i], target=self.target[i])
+            self.assertEqual(result in self.assert_result[i], True)
 
 
 @fn_timer

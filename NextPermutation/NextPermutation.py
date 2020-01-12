@@ -50,8 +50,6 @@ def fn_timer(function):
 
 class Solution:
     #####成功的解法#####
-
-    #####尝试中的解法#####
     def nextPermutation(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
@@ -105,6 +103,8 @@ class Solution:
             nums[i], nums[j] = nums[j], nums[i]
             j -= 1
         return nums
+
+    #####尝试中的解法#####
 
     #####失败的尝试#####
     def count_sum(self, nums):

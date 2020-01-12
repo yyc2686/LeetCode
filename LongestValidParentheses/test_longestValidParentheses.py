@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# @Time    : 2019/12/9 13:00
+# @Time    : 2019/12/11 17:37
 # @Author  : yeyuc
 # @Email   : yeyucheng_uestc@163.com
-# @File    : test_nextPermutation.py
+# @File    : test_longestValidParentheses.py
 # @Software: PyCharm
 """
     __project_ = LeetCode
-    __file_name__ = test_nextPermutation
+    __file_name__ = test_longestValidParentheses
     __author__ = yeyuc
-    __time__ = 2019/12/9 13:00
+    __time__ = 2019/12/11 17:37
     Code is far away from bugs with the god animal protecting
     I love animals. They taste delicious.
               ┏┓      ┏┓
@@ -28,7 +28,7 @@
 import time
 from functools import wraps
 import unittest
-from .NextPermutation import Solution
+from .LongestValidParentheses import Solution
 
 
 def fn_timer(function):
@@ -53,14 +53,14 @@ def fn_timer(function):
 class TestSolution(unittest.TestCase):
 
     def setUp(self):
-        self.input = [[1, 2, 3], [3, 2, 1], [1, 1, 5], [1, 3, 2], [2, 3, 1], [2, 3, 1, 1], [1, 5, 8, 4, 7, 6, 5, 3, 1]]
-        self.assert_result = [[1, 3, 2], [1, 2, 3], [1, 5, 1], [2, 1, 3], [3, 1, 2], [3, 1, 1, 2],
-                              [1, 5, 8, 5, 1, 3, 4, 6, 7]]
+        self.input = ["(()", ")()())", "()(()", "(()))())("]
+        self.assert_result = [2, 4, 2, 4]
 
-    def test_nextPermutation(self):
+    def test_longestValidParentheses(self):
         s = Solution()
         for i in range(len(self.assert_result)):
-            result = s.nextPermutation(nums=self.input[i])
+        # for i in range(3, len(self.assert_result)):
+            result = s.longestValidParentheses(s=self.input[i])
             self.assertEqual(self.assert_result[i], result)
 
 
